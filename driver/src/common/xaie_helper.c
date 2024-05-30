@@ -1624,9 +1624,8 @@ AieRC XAie_RunOp(XAie_DevInst *DevInst, XAie_BackendOpCode Op, void *Arg)
 				TxnInst->NumCmds++;
 			} else {
 				for(u8 i = 0; i < BdArgs->NumBdWords; i++) { 
-					// Fixed MISRA Rule 10.7 violation: Casted BdArgs->Addr to uint64_t to match the width of the composite expression.
-					XAie_Write32(DevInst, (uint64_t)BdArgs->Addr + i * 4, BdArgs->BdWords[i]);
-				}
+						// Fixed MISRA Rule 10.7 violation (Required): Casted i to uint64_t to match the width of the composite expression.
+					XAie_Write32(DevInst, BdArgs->Addr + ((uint64_t)i * 4), BdArgs->BdWords[i]);
 			}
 			return XAIE_OK;
 		} else {
