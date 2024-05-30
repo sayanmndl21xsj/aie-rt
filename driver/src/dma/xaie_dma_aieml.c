@@ -1212,14 +1212,15 @@ AieRC _XAieMl_DmaCheckBdChValidity(u8 BdNum, u8 ChNum)
 *
 ******************************************************************************/
 AieRC _XAieMl_MemTileDmaCheckBdChValidity(u8 BdNum, u8 ChNum) {
-	if((BdNum < 24U) && ((ChNum % 2U) == 0U)) 
-		return XAIE_OK; 
-	else if((BdNum >= 24U) && ((ChNum % 2U) == 1U)) 
-		return XAIE_OK; 
-		 
-	XAIE_ERROR("Invalid BdNum, ChNum combination\n"); 
-	return XAIE_INVALID_ARGS; 
-} 
+    if ((BdNum < 24U) && ((ChNum % 2U) == 0U)) 
+        return XAIE_OK; 
+    else if ((BdNum >= 24U) && ((ChNum % 2U) == 1U)) 
+        return XAIE_OK; 
+    else { // Fix for MISRA Rule 15.7: Added terminating else statement
+        XAIE_ERROR("Invalid BdNum, ChNum combination\n");
+        return XAIE_INVALID_ARGS;
+    }
+}
 
 /*****************************************************************************/
 /**
