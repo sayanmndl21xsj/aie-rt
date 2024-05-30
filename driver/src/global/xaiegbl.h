@@ -61,6 +61,10 @@
 		XAIE_PART_INIT_OPT_SHIM_RST | \
 		XAIE_PART_INIT_OPT_BLOCK_NOCAXIMMERR | \
 		XAIE_PART_INIT_OPT_ISOLATE)
+#define XAIE_PART_INIT_OPT_DEFAULT	(XAIE_PART_INIT_OPT_COLUMN_RST | \
+		XAIE_PART_INIT_OPT_SHIM_RST | \
+		XAIE_PART_INIT_OPT_BLOCK_NOCAXIMMERR | \
+		XAIE_PART_INIT_OPT_ISOLATE)
 
 /**************************** Type Definitions *******************************/
 typedef struct XAie_TileMod XAie_TileMod;
