@@ -105,12 +105,8 @@ static AieRC XAie_DebugIO_Init(XAie_DevInst *DevInst)
 *******************************************************************************/
 static AieRC XAie_DebugIO_Write32(void *IOInst, u64 RegOff, u32 Value) {
     XAie_DebugIO *DebugIOInst = (XAie_DebugIO *)IOInst; 
-     
-    // Fixed MISRA Rule 11.6 violation: Cast from pointer to void to arithmetic type is avoided by using uintptr_t.
     printf("W: 0x%llx, 0x%x\n", (uintptr_t) DebugIOInst->BaseAddr + RegOff, Value); 
-      
-    return XAIE_OK; 
-}
+    return XAIE_OK;
 
 /*****************************************************************************/
 /**
