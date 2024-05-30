@@ -263,7 +263,7 @@ AieRC XAie_DataMemBlockWrite(XAie_DevInst *DevInst, XAie_LocType Loc, u32 Addr,
 AieRC XAie_DataMemBlockRead(XAie_DevInst *DevInst, XAie_LocType Loc, u32 Addr,
 		void *Dst, u32 Size)
 {
-	AieRC RC;
+	AieRC RC; 
 	u64 DmAddrRoundDown, DmAddrRoundUp;
 	u32 BytePtr = 0;
 	u32 RemBytes = Size;
