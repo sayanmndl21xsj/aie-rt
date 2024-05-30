@@ -530,14 +530,12 @@ static int TxnCmdDump(XAie_TxnCmd* cmd) {
 ******************************************************************************/
 static AieRC _XAie_ReallocCmdBuf(XAie_TxnInst *TxnInst)
 {
-	TxnInst->CmdBuf = (XAie_TxnCmd *)realloc((void *)TxnInst->CmdBuf,
-			sizeof(XAie_TxnCmd) *
-			(TxnInst->MaxCmds + XAIE_DEFAULT_NUM_CMDS));
-	if(TxnInst->CmdBuf == NULL) {
-		XAIE_ERROR("Failed reallocate memory for transaction buffer "
-				"with id: %d\n", TxnInst->Tid);
-		return XAIE_ERR;
-	}
+	TxnInst->CmdBuf = (XAie_TxnCmd *)realloc((void *)TxnInst->CmdBuf, sizeof(XAie_TxnCmd) * (TxnInst->MaxCmds + XAIE_DEFAULT_NUM_CMDS));
+	if(TxnInst->CmdBuf == NULL) { 
+		XAIE_ERROR("Failed reallocate memory for transaction buffer " 
+				"with id: %d\n", TxnInst->Tid); 
+		return XAIE_ERR; 
+	} 
 
 	TxnInst->MaxCmds += XAIE_DEFAULT_NUM_CMDS;
 
